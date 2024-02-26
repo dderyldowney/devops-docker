@@ -7,6 +7,12 @@ like build-essential, sudo, locales, ca-certificates, git, gnupg, and GitHub CLI
 It creates a default non-privileged user called `devops` with the
 password set to `devops` and assigns it sudo rights.
 
+
+# Current Project Status
+[![Publish Docker Image](https://github.com/dderyldowney/devops-docker/actions/workflows/docker-publish.yml/badge.svg)](https://github.com/dderyldowney/devops-docker/actions/workflows/docker-publish.yml)
+
+[![Docker Image for CI](https://github.com/dderyldowney/devops-docker/actions/workflows/docker-image.yml/badge.svg)](https://github.com/dderyldowney/devops-docker/actions/workflows/docker-image.yml)
+
 # How Do I Use This Thing?
 
 - Install [Docker Desktop](https://www.docker.com/products/docker-desktop/) on your machine.
