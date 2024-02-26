@@ -1,6 +1,8 @@
 FROM ubuntu:noble
 LABEL maintainer="D Deryl Downey <ddd@davidderyldowney.com>"
 LABEL org.opencontainers.image.source="https://github.com/dderyldowney/devops-docker"
+LABEL org.opencontainers.image.description="Dockerized DevOps image"
+LABEL org.opencontainers.image.license="MIT"
 
 ARG DEBIAN_FRONTEND=noninteractive
 
