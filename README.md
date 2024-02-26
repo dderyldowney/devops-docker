@@ -13,6 +13,8 @@ password set to `devops` and assigns it sudo rights.
 
 [![Docker Image for CI](https://github.com/dderyldowney/devops-docker/actions/workflows/docker-image.yml/badge.svg)](https://github.com/dderyldowney/devops-docker/actions/workflows/docker-image.yml)
 
+[![Anchore Syft SBOM scan](https://github.com/dderyldowney/devops-docker/actions/workflows/anchore-syft.yml/badge.svg)](https://github.com/dderyldowney/devops-docker/actions/workflows/anchore-syft.yml)
+
 # How Do I Use This Thing?
 
 - Install [Docker Desktop](https://www.docker.com/products/docker-desktop/) on your machine.
