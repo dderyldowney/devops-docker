@@ -6,7 +6,7 @@ LABEL org.opencontainers.image.licenses="MIT"
 
 ARG DEBIAN_FRONTEND=noninteractive
 
-RUN apt-get update -qq && apt-get dist-upgrade -y && apt-get install -y --no-install-recommends locales sudo apt-transport-https ca-certificates curl wget git-core gnupg keychain build-essential less vim zip && locale-gen en_US.UTF-8 && /usr/sbin/update-ca-certificates && apt-get clean && apt-get autoremove && rm -rf /var/lib/apt/lists/* && adduser --quiet --disabled-password --shell /bin/bash --home /home/devops --gecos "Johnnie Q. DevOps" devops && echo "devops:devops" | chpasswd &&  usermod -aG sudo devops
+RUN apt-get update -qq && apt-get dist-upgrade -y && apt-get install -y --no-install-recommends locales sudo apt-transport-https ca-certificates zsh curl wget git-core gnupg keychain build-essential less vim zip && locale-gen en_US.UTF-8 && /usr/sbin/update-ca-certificates && apt-get clean && apt-get autoremove && rm -rf /var/lib/apt/lists/* && adduser --quiet --disabled-password --shell /usr/bin/zsh --home /home/devops --gecos "Johnnie Q. DevOps" devops && echo "devops:devops" | chpasswd &&  usermod -aG sudo devops
 
 # INSTALL GITHUB-CLI & LATEST NODEJS FROM PPAs
 # USES SEPERATE RUN COMMAND TO CREATE A SEPERATE LAYER TO EASE FUTURE REMOVAL IF DESIRED
@@ -15,6 +15,10 @@ RUN type -p curl >/dev/null || (sudo apt update && sudo apt install curl -y) && 
 # CHANGE CONTEXT TO DEFAULT NON-PRIVILEGED USER
 WORKDIR /home/devops
 USER devops
+RUN echo 'devops' | chsh -s /usr/bin/zsh && echo 'devops' | sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+ENV SHELL="/usr/bin/zsh"
 ENV LANG en_US.utf8
 ENV TERM xterm
-CMD ["/bin/bash"]
+ENV EDITOR vim
+CMD ["/usr/bin/zsh"]
