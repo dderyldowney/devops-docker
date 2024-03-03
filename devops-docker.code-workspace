@@ -1,0 +1,41 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"css.format.spaceAroundSelectorSeparator": true,
+		"css.lint.float": "warning",
+		"less.format.spaceAroundSelectorSeparator": true,
+		"less.lint.boxModel": "warning",
+		"less.lint.float": "warning",
+		"emmet.triggerExpansionOnTab": true,
+		"git.autofetch": false,
+		"git.autoStash": true,
+		"git.branchRandomName.dictionary": [
+			"adjectives",
+			"animals",
+			"colors"
+		],
+		"git.followTagsWhenSync": true,
+		"git.scanRepositories": [
+			"~/GitHub"
+		],
+		"html.format.indentInnerHtml": true,
+		"html.format.indentHandlebars": true,
+		"html.format.templating": true,
+		"npm.enableRunFromFolder": true,
+		"javascript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": true,
+		"javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": true,
+		"javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": true,
+		"javascript.format.insertSpaceAfterOpeningAndBeforeClosingTemplateStringBraces": true,
+		"javascript.format.placeOpenBraceOnNewLineForControlBlocks": true,
+		"javascript.format.semicolons": "insert",
+		"javascript.inlayHints.enumMemberValues.enabled": true,
+		"javascript.inlayHints.functionLikeReturnTypes.enabled": true,
+		"javascript.inlayHints.parameterTypes.enabled": true,
+		"javascript.referencesCodeLens.enabled": true,
+		"javascript.suggest.completeFunctionCalls": true
+	}
+}
