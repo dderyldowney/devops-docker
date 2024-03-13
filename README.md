@@ -42,35 +42,18 @@ it when you create a container as follows:
 
 ```
 docker volume create github
-docker run --name devops -dt -v github:/home/devops/GitHub devops-docker:latest
+docker run --name devops -dt -v github:/home/devops/github devops-docker:latest
 docker attach devops
 ```
 This will
   - Create a docker volume
-  - Attach it to `/home/devops/GitHub` in the resulting container
+  - Attach it to `/home/devops/github` in the resulting container
   - Put the container into the background with a pseudo tty
   - The last command will connect you to it
 
-When you log in, you should see the `GitHub` directory in the devops user's `$HOME`.
+When you log in, you should see the `github` directory in the devops user's `$HOME`.
 This is where that volume you created earlier is mounted for long term storage.
 Everything that goes into this directory will persist for later use.
-
-# NOTE
-The first time you attach the volume, the directory in the container you attached it to
-will probably be owned by root instead of your user which will prevent you from saving anything
-into that directory. Completely simple fix. As the `devops` user, run the following command.
-You'll only have to do this once, _the very first time_, for as long as you use the same volume. 
-The password `sudo` will ask for is the one for the `devops` user which is.. well.. `devops` 
-(lol, see? simple!)
-
-```
-sudo chown -R devops:devops /home/devops/GitHub
-```
-
-That will change ownership of the mountpoint to the `devops` user and all files written to the directory
-will be stored on the volume and maintain their permissions. You should have no read/write issues.
-
-Now, back to the good stuff...
 
 Change into that directory and clone whatever repositories you want/need.
 When you disconnect, stop, or even delete the container your data will be safe and sound
