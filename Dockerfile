@@ -1,7 +1,7 @@
-FROM ubuntu:noble
+FROM ubuntu:latest
 LABEL maintainer="D Deryl Downey <ddd@davidderyldowney.com>"
 LABEL org.opencontainers.image.source="https://github.com/dderyldowney/devops-docker"
-LABEL org.opencontainers.image.description="Dockerized development environment for local coding using Docker or Docker Desktop"
+LABEL org.opencontainers.image.description="Dockerized Ubuntu (latest LTS) development environment for local coding using Docker or Docker Desktop"
 LABEL org.opencontainers.image.licenses="MIT"
 
 ARG DEBIAN_FRONTEND=noninteractive
