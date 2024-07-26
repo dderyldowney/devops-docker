@@ -1,8 +1,8 @@
 # Develop Your Way
 
-This is the initial Dockerfile for creating a complete development
+This Dockerfile creates a complete development
 environment under Docker / Docker Desktop for local coding use.
-This uses the latest Ubuntu development branch, adds baseline apps
+It uses the latest official Ubuntu LTS image, adds baseline apps
 like build-essential, sudo, locales, ca-certificates, git, gnupg, and GitHub CLI.
 
 It creates a default non-privileged user called `devops` with the
