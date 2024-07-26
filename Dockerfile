@@ -25,7 +25,7 @@ RUN echo 'devops' | chsh -s /usr/bin/zsh && echo 'devops' | sh -c "$(curl -fsSL 
 RUN git clone https://github.com/rbenv/rbenv.git ~/.rbenv && git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build && echo 'eval "$(~/.rbenv/bin/rbenv init - bash)"' >> ~/.bashrc && echo 'eval "$(~/.rbenv/bin/rbenv init - zsh)"' >> ~/.zshrc && mkdir -p ~/github
 
 ENV SHELL="/usr/bin/zsh"
-ENV LANG en_US.utf8
-ENV TERM xterm
-ENV EDITOR vim
+ENV LANG=en_US.utf8
+ENV TERM=xterm
+ENV EDITOR=vim
 CMD ["/usr/bin/zsh"]
