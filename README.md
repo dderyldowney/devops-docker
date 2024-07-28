@@ -14,7 +14,7 @@ Package Installation : The script updates the package lists, upgrades the instal
 
 User Creation : It creates a new user named "devops" with a password "devops" and adds the user to the sudo group.
 
-GitHub CLI and Node.js Installation : It installs the GitHub CLI tool and the latest version of Node.js (18.x) from their respective PPAs (Personal Package Archives).
+GitHub CLI and Node.js Installation : It installs the GitHub CLI tool and the LTS version of Node.js (20.x) from their respective PPAs (Personal Package Archives).
 
 Port Exposure : It exposes ports 3000 and 5432, which are commonly used for web applications and databases, respectively.
 
