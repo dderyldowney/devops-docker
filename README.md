@@ -1,12 +1,34 @@
 # Develop Your Way
 
-This Dockerfile creates a complete development
-environment under Docker / Docker Desktop for local coding use.
-It uses the latest official Ubuntu LTS image, adds baseline apps
-like build-essential, sudo, locales, ca-certificates, git, gnupg, and GitHub CLI.
+The provided code is a Dockerfile, which is a script used to create a Docker image. A Docker image is a lightweight, standalone, executable package that includes everything needed to run an application, including the code, runtime, system tools, system libraries, and settings.
 
-It creates a default non-privileged user called `devops` with the
-password set to `devops` and assigns it sudo rights.
+Here's a breakdown of what the code does:
+
+Base Image : The Dockerfile starts by specifying the base image as the latest version of Ubuntu (FROM ubuntu:latest).
+
+Metadata : It sets various labels with information about the maintainer, source code repository, description, and licenses.
+
+Environment Variable : It sets the DEBIAN_FRONTEND environment variable to noninteractive to avoid prompts during package installation.
+
+Package Installation : The script updates the package lists, upgrades the installed packages, and installs various development tools and libraries. These include locales, sudo, apt-transport-https, ca-certificates, zsh, curl, wget, git, build-essential, vim, zip, and various libraries for programming languages like Ruby, Node.js, and Rust.
+
+User Creation : It creates a new user named "devops" with a password "devops" and adds the user to the sudo group.
+
+GitHub CLI and Node.js Installation : It installs the GitHub CLI tool and the latest version of Node.js (18.x) from their respective PPAs (Personal Package Archives).
+
+Port Exposure : It exposes ports 3000 and 5432, which are commonly used for web applications and databases, respectively.
+
+Working Directory and User Switch : It changes the working directory to /home/devops and switches to the non-privileged "devops" user.
+
+Oh My Zsh Installation : It installs the Oh My Zsh framework for the Zsh shell, which provides a better user experience and additional functionality.
+
+Ruby Environment Setup : It clones the rbenv and ruby-build repositories, which are used for managing multiple Ruby versions and installing Ruby gems. It also creates a directory for Git repositories.
+
+Environment Variables : It sets various environment variables, such as the default shell, language, terminal emulator, and text editor.
+
+Default Command : Finally, it sets the default command to run the Zsh shell when the container starts.
+
+In summary, this Dockerfile creates a Docker image based on the latest LTS Ubuntu with various development tools and libraries installed, sets up a non-privileged user account, installs additional tools like GitHub CLI, Node.js, and Oh My Zsh, and configures the initial environment for Ruby, NodeJS, and Python3 development. The resulting Docker image can be used as a development environment for coding and running applications locally using Docker or Docker Desktop.
 
 ## Current Project Status
 
