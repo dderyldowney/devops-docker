@@ -6,29 +6,35 @@ Here's a breakdown of what the code does:
 
 Base Image : The Dockerfile starts by specifying the base image as the latest version of Ubuntu (FROM ubuntu:latest).
 
-Metadata : It sets various labels with information about the maintainer, source code repository, description, and licenses.
+Metadata Labels : Several labels are added to provide metadata about the image, such as the maintainer, source code repository, description, and licenses.
 
-Environment Variable : It sets the DEBIAN_FRONTEND environment variable to noninteractive to avoid prompts during package installation.
+Environment Variable : The ARG instruction sets an environment variable DEBIAN_FRONTEND to noninteractive, which is used to run apt-get in a non-interactive mode.
 
-Package Installation : The script updates the package lists, upgrades the installed packages, and installs various development tools and libraries. These include locales, sudo, apt-transport-https, ca-certificates, zsh, curl, wget, git, build-essential, vim, zip, and various libraries for programming languages like Ruby, Node.js, and Rust.
+Package Installation : The RUN instruction updates the package lists, upgrades the installed packages, and installs various packages such as locales, sudo, build essentials, programming languages (zsh, curl, wget, git, gnupg, keychain, rustc, and more), and development libraries.
 
-User Creation : It creates a new user named "devops" with a password "devops" and adds the user to the sudo group.
+User Creation : A new user named "devops" is created with a password "devops" and added to the sudo group.
 
-GitHub CLI and Node.js Installation : It installs the GitHub CLI tool and the LTS version of Node.js (20.x) from their respective PPAs (Personal Package Archives).
+GitHub CLI and Node.js Installation : A separate RUN instruction installs the GitHub CLI and the latest LTS version of Node.js from their respective PPAs (Personal Package Archives).
 
-Port Exposure : It exposes ports 3000 and 5432, which are commonly used for web applications and databases, respectively.
+Python Version : The update-alternatives command is used to set the system's default Python version to Python 3.
 
-Working Directory and User Switch : It changes the working directory to /home/devops and switches to the non-privileged "devops" user.
+Exposed Ports : The Dockerfile exposes ports 3000 and 5432, which are commonly used for web applications and databases, respectively.
 
-Oh My Zsh Installation : It installs the Oh My Zsh framework for the Zsh shell, which provides a better user experience and additional functionality.
+Working Directory and User Context : The working directory is set to /home/devops, and the user context is changed to the non-privileged "devops" user.
 
-Ruby Environment Setup : It clones the rbenv and ruby-build repositories, which are used for managing multiple Ruby versions and installing Ruby gems. It also creates a directory for Git repositories.
+Oh My Zsh Installation : The Oh My Zsh framework is installed for the "devops" user to enhance the Zsh shell experience.
 
-Environment Variables : It sets various environment variables, such as the default shell, language, terminal emulator, and text editor.
+PyEnv Installation : PyEnv, a Python version management tool, is installed for Python developers.
 
-Default Command : Finally, it sets the default command to run the Zsh shell when the container starts.
+rbenv and ruby-build Installation : rbenv and ruby-build are installed for Ruby developers, and a directory for Git repositories is created.
 
-In summary, this Dockerfile creates a Docker image based on the latest LTS Ubuntu with various development tools and libraries installed, sets up a non-privileged user account, installs additional tools like GitHub CLI, Node.js, and Oh My Zsh, and configures the initial environment for Ruby, NodeJS, and Python3 development. The resulting Docker image can be used as a development environment for coding and running applications locally using Docker or Docker Desktop.
+Node Version Manager (NVM) Installation : NVM is installed to allow JavaScript developers to select and use different versions of Node.js.
+
+Environment Variables : Several environment variables are set, such as the shell (SHELL), language (LANG), terminal emulator (TERM), and default text editor (EDITOR).
+
+Default Command : The default command to be executed when the container starts is set to /usr/bin/zsh, which will launch the Zsh shell.
+
+Overall, this Dockerfile sets up a development environment within a Docker container, including various programming languages, tools, and utilities commonly used by developers. It creates a non-privileged user account named "devops" and installs version managers for Python, Ruby, and Node.js, allowing developers to work with different versions of these languages within the container.
 
 ## Current Project Status
 
